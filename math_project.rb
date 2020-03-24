@@ -52,6 +52,20 @@ module User_matrix
 		return m
 	
 	end
+	
+	def User_matrix.transpose(m)
+		rows = m.length
+		cols = m[0].length
+		mtr = Array.new(cols){Array.new(rows, 0.0)}
+		
+		for i in 0...cols
+			for j in 0...rows
+				mtr[i][j] = m[j][i]
+			end
+		end
+		
+		return mtr
+	end
 
 
 
