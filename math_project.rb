@@ -66,6 +66,34 @@ module User_matrix
 		
 		return mtr
 	end
+	
+	def User_matrix.det(m)
+		# Make sure matrix is 2x2 or 3x3
+		rows = m.length
+		cols = m[0].length
+				
+		if not ((rows==2 and cols==2) or (rows==3 and cols==3))
+			puts "Error: must be 2x2 or 3x3 matrix"
+			return
+		end
+		
+		det = 0
+		det1 = 0
+		det2 = 0
+		det3 = 0
+		
+		if (rows==2 and cols==2)
+			det = m[0][0]*m[1][1]-m[0][1]*m[1][0]
+		elsif (rows==3 and cols==3)
+			det1 = m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])
+			det2 = m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])
+			det3 = m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0])
+			
+			det = det1-det2+det3
+		end
+		
+		return det
+	end
 
 
 
