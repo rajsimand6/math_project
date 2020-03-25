@@ -162,6 +162,21 @@ module User_math
 		return (Math.tan(t*User_math.d2r(t)))
 	end
 
+	def User_math.asind(r)
+		return (User_math.r2d(Math.asin(r)))
+	end
+	
+	def User_math.acosd(r)
+		return (User_math.r2d(Math.acos(r)))
+	end
+	
+	def User_math.atand(r)
+		return (User_math.r2d(Math.atan(r)))
+	end
+	
+	def User_math.atan2d(r)
+		return (User_math.r2d(Math.atan2(r)))
+	end
 	
 end
 
