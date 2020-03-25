@@ -94,7 +94,46 @@ module User_matrix
 		
 		return det
 	end
+	
+	def User_matrix.inverse(m)
+		# Make sure matrix is 2x2 or 3x3
+		rows = m.length
+		cols = m[0].length
+				
+		if not ((rows==2 and cols==2) or (rows==3 and cols==3))
+			puts "Error: must be 2x2 or 3x3 matrix"
+			return
+		end
+		
+		minv = Array.new(rows){Array.new(cols, 0.0)}
+		det = User_matrix.det(m)
+		
+		if (det == 0.0)
+			puts "Error: determinant is zero"
+			return
+		end
+		
+		if (rows==2 and cols==2)
+			minv[0][0] = (1.0/det)*m[1][1]
+			minv[1][1] = (1.0/det)*m[0][0]
+			minv[0][1] = (-1.0/det)*m[0][1]
+			minv[1][0] = (-1.0/det)*m[1][0]
 
-
+		elsif (rows==3 and cols==3)
+			minv[0][0] = (1.0/det)*(m[1][1]*m[2][2]-m[1][2]*m[2][1])
+			minv[1][0] = (-1.0/det)*(m[1][0]*m[2][2]-m[1][2]*m[2][0])
+			minv[2][0] = (1.0/det)*(m[1][0]*m[2][1]-m[1][1]*m[2][0])
+			
+			minv[0][1] = (-1.0/det)*(m[0][1]*m[2][2]-m[0][2]*m[2][1])
+			minv[1][1] = (1.0/det)*(m[0][0]*m[2][2]-m[0][2]*m[2][0])
+			minv[2][1] = (-1.0/det)*(m[0][0]*m[2][1]-m[0][1]*m[2][0])
+			
+			minv[0][2] = (1.0/det)*(m[0][1]*m[1][2]-m[0][2]*m[1][1])
+			minv[1][2] = (-1.0/det)*(m[0][0]*m[1][2]-m[0][2]*m[1][0])
+			minv[2][2] = (1.0/det)*(m[0][0]*m[1][1]-m[0][1]*m[1][0])
+		end
+		
+		return minv
+	end
 
 end
