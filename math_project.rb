@@ -150,6 +150,19 @@ module User_math
 		return (t*User_math::PI/180.0)
 	end
 	
+	def User_math.sind(t)
+		return (Math.sin(t*User_math.d2r(t)))
+	end
+	
+	def User_math.cosd(t)
+		return (Math.cos(t*User_math.d2r(t)))
+	end
+	
+	def User_math.tand(t)
+		return (Math.tan(t*User_math.d2r(t)))
+	end
+
+	
 end
 
 
