@@ -137,3 +137,20 @@ module User_matrix
 	end
 
 end
+
+
+module User_math
+	PI = 3.1415926535898
+	
+	def User_math.r2d(t)
+		return (t*180.0/User_math::PI)
+	end
+	
+	def User_math.d2r(t)
+		return (t*User_math::PI/180.0)
+	end
+	
+end
+
+
+
