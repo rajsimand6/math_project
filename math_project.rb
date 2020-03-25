@@ -189,6 +189,20 @@ module User_polar
 		return (Math.atan(y/x))
 	end
 	
+	def User_polar.getUnitVectorFromAngleDeg(t)
+		ret = User_matrix.zeros(1, 2)
+		ret[0] = User_math.cosd(t)
+		ret[1] = User_math.sind(t)
+		return ret
+	end
+	
+	def User_polar.getUnitVectorFromAngleRad(t)
+		ret = User_matrix.zeros(1, 2)
+		ret[0] = Math.cos(t)
+		ret[1] = Math.sin(t)
+		return ret
+	end
+	
 end
 
 
