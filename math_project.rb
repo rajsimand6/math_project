@@ -180,5 +180,15 @@ module User_math
 	
 end
 
+module User_polar
+	def User_polar.getTrigAngleFromVectorDeg(x, y)
+		return (User_math.atand(y/x))
+	end
+	
+	def User_polar.getTrigAngleFromVectorRad(x, y)
+		return (Math.atan(y/x))
+	end
+	
+end
 
 
