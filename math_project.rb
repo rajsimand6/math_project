@@ -203,6 +203,64 @@ module User_polar
 		return ret
 	end
 	
+	def User_polar.convertTrigtoNavAngle(t)
+		if (t > 0.0 and t < 90.0)
+			n = 90.0 - t
+		elsif (t > 90.0 and t < 180.0)
+			n = 180.0 + t
+		elsif (t > 180.0 and t < 270.0)
+			n = 450.0 - t
+		elsif (t > 270.0 and t < 360.0)
+			n = 450.0 - t
+		elsif (t < 0.0 and t > -90.0)
+			n = 90.0 - t
+		elsif (t < -90.0 and t > -180.0)
+			n = 90.0 - t
+		elsif (t < -180.0 and t > -270.0)
+			n = 90.0 - t
+		elsif (t < -270.0 and t > -360.0)
+			n = -270.0 - t
+		elsif (t == 0.0 or t == 360.0 or t == -360.0)
+			n = 90.0
+		elsif (t == 90.0 or t == -270.0)
+			n = 0.0
+		elsif (t == 180.0 or t == -180.0)
+			n = 270.0
+		elsif (t == 270.0 or t == -90.0)
+			n = 180.0
+		else
+			puts("Error: input must be between -360 and 360 deg")
+			return 0
+		end
+		
+		return n
+	end
+	
+	def User_polar.convertNavtoTrigAngle(n)
+		if (n > 0.0 and n < 90.0)
+			t = 90.0 - n
+		elsif (n > 90.0 and n < 180.0)
+			t = 450.0 - n
+		elsif (n > 180.0 and n < 270.0)
+			t = 450.0 - n
+		elsif (n > 270.0 and n < 360.0)
+			t = 450.0 - n 
+		elsif (n == 0.0 or n == 360.0)
+			t = 90.0
+		elsif (n == 90.0)
+			t = 0.0
+		elsif (n == 180.0)
+			t = 270.0
+		elsif (n == 270.0)
+			t = 180.0
+		else
+			puts("Error: input must be between -360 and 360 deg")
+			return 0
+		end
+		
+		return t
+	end
+	
 end
 
 
