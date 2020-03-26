@@ -261,6 +261,19 @@ module User_polar
 		return t
 	end
 	
+	def User_polar.getNavAngleFromVector(x, y)
+		trigAngle = User_polar.getTrigAngleFromVectorDeg(x, y)
+		return (User_polar.convertTrigtoNavAngle(trigAngle))
+	end
+	
+	def User_polar.getNavAngleFromTrigAngleRad(t)
+		return (User_polar.convertTrigtoNavAngle(User_math.r2d(t)))
+	end
+	
+	def User_polar.getNavAngleFromTrigAngleDeg(t)
+		return (User_polar.convertTrigtoNavAngle(t))
+	end
+	
 end
 
 
